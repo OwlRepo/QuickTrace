@@ -1,0 +1,74 @@
+PODS:
+  - device_id (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_blue (0.0.1):
+    - Flutter
+    - flutter_blue/Protos (= 0.0.1)
+  - flutter_blue/Protos (0.0.1):
+    - Flutter
+    - Protobuf (~> 3.11.4)
+  - flutter_share (0.0.1):
+    - Flutter
+  - flutter_statusbarcolor (0.0.1):
+    - Flutter
+  - path_provider (0.0.1):
+    - Flutter
+  - "permission_handler (5.0.1+1)":
+    - Flutter
+  - Protobuf (3.11.4)
+  - sensors (0.0.1):
+    - Flutter
+  - system_setting (0.1.1):
+    - Flutter
+
+DEPENDENCIES:
+  - device_id (from `.symlinks/plugins/device_id/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_blue (from `.symlinks/plugins/flutter_blue/ios`)
+  - flutter_share (from `.symlinks/plugins/flutter_share/ios`)
+  - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
+  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - sensors (from `.symlinks/plugins/sensors/ios`)
+  - system_setting (from `.symlinks/plugins/system_setting/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Protobuf
+
+EXTERNAL SOURCES:
+  device_id:
+    :path: ".symlinks/plugins/device_id/ios"
+  Flutter:
+    :path: Flutter
+  flutter_blue:
+    :path: ".symlinks/plugins/flutter_blue/ios"
+  flutter_share:
+    :path: ".symlinks/plugins/flutter_share/ios"
+  flutter_statusbarcolor:
+    :path: ".symlinks/plugins/flutter_statusbarcolor/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
+  permission_handler:
+    :path: ".symlinks/plugins/permission_handler/ios"
+  sensors:
+    :path: ".symlinks/plugins/sensors/ios"
+  system_setting:
+    :path: ".symlinks/plugins/system_setting/ios"
+
+SPEC CHECKSUMS:
+  device_id: 4a0bf078741a3eec6ba0e6cc72e786395d5991b0
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_blue: eeb381dc4727a0954dede73515f683865494b370
+  flutter_share: 4be0208963c60b537e6255ed2ce1faae61cd9ac2
+  flutter_statusbarcolor: 8afb1071ed8c58be929f1e32b36c629771fd2259
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
+  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  sensors: 84eb7a30e47a649e4172b71d6e81be614c280336
+  system_setting: 92cc591ade5113a6fd57ed0702dc5eaa9f5337e5
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.9.3
