@@ -64,7 +64,7 @@ class AccountActions extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Username',
                             labelStyle: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 15.0,
                               fontFamily: 'SanFranciscoRegular',
                             ),
                             prefixIcon: Icon(Icons.person),
@@ -81,7 +81,7 @@ class AccountActions extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Password',
                             labelStyle: TextStyle(
-                              fontSize: 10.0,
+                              fontSize: 15.0,
                               fontFamily: 'SanFranciscoRegular',
                             ),
                             prefixIcon: Icon(Icons.lock),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicktrace/Widgets/Popups/CreateNewAccountQRCode.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 
 class Body extends StatelessWidget {
@@ -16,8 +17,8 @@ class Body extends StatelessWidget {
       padding: EdgeInsetsResponsive.only(
         left: 30.0,
         right: 30.0,
-        top: 100.0,
-        bottom: 350.0,
+        top: 250.0,
+        bottom: 200.0,
       ),
       child: Form(
         child: Column(
@@ -139,7 +140,14 @@ class Body extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   color: Color.fromRGBO(226, 53, 53, 1),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: CreateNewAccountQRCode(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Submit',
                     style: TextStyle(

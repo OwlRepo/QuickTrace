@@ -6,6 +6,7 @@ class DTRProvider with ChangeNotifier {
   TimeRecordProvider timeAndDateProvider;
   List<DTRModel> dtrInformations = [
     DTRModel(
+      status: 'Loading...',
       name: 'Loading...',
       address: 'Loading...',
       contactNo: 'Loading...',
@@ -18,6 +19,7 @@ class DTRProvider with ChangeNotifier {
   Future<List<DTRModel>> generateQRData() async {
     dtrInformations = [
       DTRModel(
+        status: 'Loading...',
         name: 'Loading...',
         address: 'Loading...',
         contactNo: 'Loading...',

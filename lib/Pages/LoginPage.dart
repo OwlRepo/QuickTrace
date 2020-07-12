@@ -18,37 +18,41 @@ class LoginPage extends StatelessWidget {
 
     return ResponsiveWidgets.builder(
       child: Scaffold(
-        body: ContainerResponsive(
-          heightResponsive: true,
-          widthResponsive: true,
-          padding: EdgeInsetsResponsive.only(
-            left: 20.0,
-            right: 20.0,
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                flex: 4,
-                child: LogoName(),
-              ),
-              Expanded(
-                flex: 8,
-                child: AccountActions(),
-              ),
-              Expanded(
-                flex: 1,
-                child: AccountOptions(),
-              ),
-              Expanded(
-                flex: 3,
-                child: Remarks(),
-              ),
-            ],
+        body: SingleChildScrollView(
+          child: ContainerResponsive(
+            height: 1920.0,
+            width: 1080.0,
+            heightResponsive: true,
+            widthResponsive: true,
+            padding: EdgeInsetsResponsive.only(
+              left: 20.0,
+              right: 20.0,
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: LogoName(),
+                ),
+                Expanded(
+                  flex: 8,
+                  child: AccountActions(),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: AccountOptions(),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Remarks(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quicktrace/Pages/SplashScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:quicktrace/Providers/BasicInformationProvider.dart';
+import 'package:quicktrace/Providers/CreateAccountProvider.dart';
 import 'package:quicktrace/Providers/TimeRecordProvider.dart';
+
+import 'Providers/DTRProvider.dart';
 
 void main() {
   runApp(
@@ -10,6 +14,15 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (context) => TimeRecordProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CreateAccountProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DTRProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => BasicInformationProvider(),
         ),
       ],
       child: MyApp(),

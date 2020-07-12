@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 
-class DTRToQRCode extends StatelessWidget {
+class CreateNewAccountQRCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ResponsiveWidgets.init(
@@ -38,7 +38,7 @@ class DTRToQRCode extends StatelessWidget {
             top: -80.0,
             child: ContainerResponsive(
               child: TextResponsive(
-                'Let the gateway device scan this QRCode first\nbefore you proceed.',
+                'Take a screenshot of this QRCode and get it scanned\nby the gateway device.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
