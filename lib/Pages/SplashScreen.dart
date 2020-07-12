@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quicktrace/Pages/LoginPage.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -13,7 +14,13 @@ class SplashScreen extends StatelessWidget {
       },
     );
 
-    return Container(
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
+    return ContainerResponsive(
       decoration: BoxDecoration(
         color: Colors.white,
       ),

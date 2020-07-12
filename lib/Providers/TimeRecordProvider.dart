@@ -1,14 +1,14 @@
+import 'package:quicktrace/Models/TimeAndDateModel.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class TimeRecordProvider with ChangeNotifier {
-  String hours, date;
+  List<TimeAndDateModel> _dateTimeInfo = [
+    TimeAndDateModel(time: 'Loading...', date: 'Loading...'),
+  ];
+  List<TimeAndDateModel> get dateTimeInfo => _dateTimeInfo;
 
-  Stream<String> getHoursAndDate() async* {
-    hours = DateFormat.jm().format(DateTime.now());
-    date = DateFormat.yMMMMd().format(DateTime.now()).toString();
-    yield hours;
-    yield date;
+  set dateTimeInfo(List<TimeAndDateModel> value) {
+    _dateTimeInfo = value;
     notifyListeners();
   }
 }

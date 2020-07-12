@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
+    return ContainerResponsive(
+      heightResponsive: true,
+      widthResponsive: true,
+      padding: EdgeInsetsResponsive.only(
         left: 30.0,
         right: 30.0,
         top: 100.0,
-        bottom: 200.0,
+        bottom: 350.0,
       ),
       child: Form(
         child: Column(
@@ -16,44 +25,44 @@ class Body extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              flex: 8,
+              flex: 9,
               child: Card(
                 clipBehavior: Clip.antiAlias,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 elevation: 5.0,
-                child: Container(
+                child: ContainerResponsive(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
                         flex: 1,
-                        child: Container(
+                        child: ContainerResponsive(
                           decoration: BoxDecoration(
                             color: Color.fromRGBO(64, 64, 64, 1),
                           ),
                           child: Center(
-                            child: Text(
+                            child: TextResponsive(
                               'Basic information',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontFamily: 'SanFranciscoBold',
-                                fontSize: 15.0,
+                                fontSize: 35.0,
                               ),
                             ),
                           ),
                         ),
                       ),
                       Expanded(
-                        flex: 8,
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            left: 30.0,
-                            right: 30.0,
+                        flex: 9,
+                        child: ContainerResponsive(
+                          padding: EdgeInsetsResponsive.only(
+                            left: 60.0,
+                            right: 60.0,
                             top: 10.0,
-                            bottom: 30.0,
+                            bottom: 90.0,
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -118,13 +127,14 @@ class Body extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            SizedBoxResponsive(
               height: 25.0,
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                child: FlatButton(
+              child: ContainerResponsive(
+                child: RaisedButtonResponsive(
+                  elevation: 0.0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),

@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:quicktrace/Pages/HomePage.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class AccountActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-        left: 30.0,
-        right: 30.0,
-        bottom: 40.0,
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
+    return ContainerResponsive(
+      padding: EdgeInsetsResponsive.only(
+        left: 60.0,
+        right: 60.0,
+        bottom: 80.0,
       ),
       child: Card(
         clipBehavior: Clip.antiAlias,
@@ -28,10 +35,10 @@ class AccountActions extends StatelessWidget {
                     top: 20.0,
                     left: 30.0,
                   ),
-                  child: Text(
+                  child: TextResponsive(
                     'Login',
                     style: TextStyle(
-                      fontSize: 25.0,
+                      fontSize: 50.0,
                       fontFamily: 'SanFranciscoBold',
                       fontWeight: FontWeight.bold,
                       color: Color.fromRGBO(64, 64, 64, 1),
@@ -41,11 +48,11 @@ class AccountActions extends StatelessWidget {
               ),
               Expanded(
                 flex: 8,
-                child: Container(
-                  padding: EdgeInsets.only(
+                child: ContainerResponsive(
+                  padding: EdgeInsetsResponsive.only(
                     top: 20.0,
-                    left: 40.0,
-                    right: 40.0,
+                    left: 80.0,
+                    right: 80.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -57,6 +64,7 @@ class AccountActions extends StatelessWidget {
                           decoration: InputDecoration(
                             labelText: 'Username',
                             labelStyle: TextStyle(
+                              fontSize: 10.0,
                               fontFamily: 'SanFranciscoRegular',
                             ),
                             prefixIcon: Icon(Icons.person),
@@ -69,9 +77,11 @@ class AccountActions extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: TextFormField(
+                          obscureText: true,
                           decoration: InputDecoration(
                             labelText: 'Password',
                             labelStyle: TextStyle(
+                              fontSize: 10.0,
                               fontFamily: 'SanFranciscoRegular',
                             ),
                             prefixIcon: Icon(Icons.lock),
@@ -98,9 +108,10 @@ class AccountActions extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
+                  child: TextResponsive(
                     'Submit',
                     style: TextStyle(
+                      fontSize: 30.0,
                       color: Colors.white,
                       fontFamily: 'SanFranciscoRegular',
                     ),

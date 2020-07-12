@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:quicktrace/Widgets/HomePage/Body.dart';
 import 'package:quicktrace/Widgets/HomePage/Headers.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
     return Scaffold(
       body: SafeArea(
-        child: Container(
+        child: ContainerResponsive(
+          heightResponsive: true,
+          widthResponsive: true,
           color: Color.fromRGBO(255, 255, 255, 1),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

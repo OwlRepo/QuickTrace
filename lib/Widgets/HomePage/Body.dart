@@ -1,12 +1,28 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:quicktrace/Models/TimeAndDateModel.dart';
 import 'package:quicktrace/Providers/TimeRecordProvider.dart';
+import 'package:quicktrace/Widgets/Popups/DTRToQRCode.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dateTimeProvider = Provider.of<TimeRecordProvider>(context);
-    dateTimeProvider.getHoursAndDate();
+
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      List<TimeAndDateModel> setTimeAndDateInfo = [
+        TimeAndDateModel(
+          time: DateFormat.jm().format(DateTime.now()).toString(),
+          date: DateFormat.yMMMMd().format(DateTime.now()).toString(),
+        ),
+      ];
+      dateTimeProvider.dateTimeInfo = setTimeAndDateInfo;
+    });
+
     List<Card> bodyItems = [
       Card(
         elevation: 5.0,
@@ -19,41 +35,44 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              height: 35.0,
+            ContainerResponsive(
+              height: 95.0,
+              heightResponsive: true,
               color: Color.fromRGBO(64, 64, 64, 1),
               child: Center(
-                child: Text(
+                child: TextResponsive(
                   'Basic information',
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'SanFranciscoBold',
-                    fontSize: 16.0,
+                    fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            Container(
-              height: 180.0,
+            ContainerResponsive(
+              height: 500.0,
+              heightResponsive: true,
               color: Colors.white,
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Container(
-                      padding: EdgeInsets.only(
-                        top: 25.0,
-                        bottom: 25.0,
-                        left: 10.0,
-                        right: 10.0,
+                    ContainerResponsive(
+                      padding: EdgeInsetsResponsive.only(
+                        top: 120.0,
+                        bottom: 120.0,
+                        left: 40.0,
+                        right: 40.0,
                       ),
-                      width: 150.0,
+                      width: 400.0,
+                      widthResponsive: true,
                       child: Card(
                         elevation: 10.0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                         clipBehavior: Clip.antiAlias,
                         child: Container(
@@ -66,8 +85,9 @@ class Body extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 180,
+                    ContainerResponsive(
+                      width: 530,
+                      widthResponsive: true,
                       decoration: BoxDecoration(),
                       child: Center(
                         child: RichText(
@@ -119,15 +139,18 @@ class Body extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
         ),
         clipBehavior: Clip.antiAlias,
-        child: Container(
-          height: 215.0,
+        child: ContainerResponsive(
+          height: 595.0,
+          heightResponsive: true,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
                 flex: 8,
-                child: Container(
+                child: ContainerResponsive(
+                  heightResponsive: true,
+                  widthResponsive: true,
                   child: Stack(
                     fit: StackFit.loose,
                     alignment: Alignment.centerRight,
@@ -137,12 +160,14 @@ class Body extends StatelessWidget {
                         'assets/Images/DayBG.png',
                       ),
                       Positioned(
+                        top: 50,
                         left: 20,
                         child: RichText(
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: '${dateTimeProvider.hours}\n\n',
+                                text:
+                                    '${dateTimeProvider.dateTimeInfo[0].time}\n\n',
                                 style: TextStyle(
                                   color: Color.fromRGBO(64, 64, 64, 1),
                                   fontFamily: 'SanFranciscoBold',
@@ -151,7 +176,8 @@ class Body extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: '${dateTimeProvider.date}\n',
+                                text:
+                                    '${dateTimeProvider.dateTimeInfo[0].date}\n\n',
                                 style: TextStyle(
                                   color: Color.fromRGBO(64, 64, 64, 1),
                                   fontFamily: 'SanFranciscoBold',
@@ -168,9 +194,21 @@ class Body extends StatelessWidget {
               ),
               Expanded(
                 flex: 2,
-                child: FlatButton(
+                child: RaisedButtonResponsive(
+                  elevation: 0.0,
                   color: Color.fromRGBO(226, 53, 53, 1),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      builder: (context) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        content: DTRToQRCode(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'TIME IN',
                     style: TextStyle(
@@ -187,11 +225,16 @@ class Body extends StatelessWidget {
         ),
       ),
     ];
-
-    return Container(
-      padding: EdgeInsets.only(
-        left: 20.0,
-        right: 20.0,
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
+    return ContainerResponsive(
+      padding: EdgeInsetsResponsive.only(
+        left: 40.0,
+        right: 40.0,
         top: 50.0,
       ),
       child: ListView.builder(

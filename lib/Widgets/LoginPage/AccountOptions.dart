@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:quicktrace/Pages/SignUpPage.dart';
+import 'package:responsive_widgets/responsive_widgets.dart';
 
 class AccountOptions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
+    ResponsiveWidgets.init(
+      context,
+      height: 1920, // Optional
+      width: 1080, // Optional
+      allowFontScaling: true, // Optional
+    );
+    return ContainerResponsive(
+      padding: EdgeInsetsResponsive.only(
         left: 30.0,
         right: 30.0,
       ),
@@ -15,19 +22,28 @@ class AccountOptions extends StatelessWidget {
         children: [
           Expanded(
             flex: 5,
-            child: FlatButton(
+            child: RaisedButtonResponsive(
+              elevation: 0.0,
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
               hoverColor: Colors.transparent,
               color: Colors.transparent,
               highlightColor: Colors.transparent,
               onPressed: () {},
-              child: Text('Forgot Password?'),
+              child: Text(
+                'Forgot Password?',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  color: Color.fromRGBO(64, 64, 64, 1),
+                  fontFamily: 'SanFranciscoBold',
+                ),
+              ),
             ),
           ),
           Expanded(
             flex: 5,
-            child: FlatButton(
+            child: RaisedButtonResponsive(
+              elevation: 0.0,
               onPressed: () {},
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -41,8 +57,9 @@ class AccountOptions extends StatelessWidget {
                     builder: (context) => SignUpPage(),
                   ),
                 ),
-                child: Container(
-                  height: 40.0,
+                child: ContainerResponsive(
+                  heightResponsive: true,
+                  height: 80.0,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -54,9 +71,10 @@ class AccountOptions extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Center(
-                    child: Text(
+                    child: TextResponsive(
                       'Sign up',
                       style: TextStyle(
+                        fontSize: 30.0,
                         color: Colors.white,
                         fontFamily: 'SanFranciscoRegular',
                       ),

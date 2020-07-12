@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:quicktrace/Pages/SplashScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:quicktrace/Providers/TimeRecordProvider.dart';
