@@ -26,6 +26,7 @@ dependencies:
   pretty_qr_code: ^1.0.1
   responsive_widgets: ^2.0.1
   responsive_builder: ^0.2.0+2
+  cloud_firestore: ^0.13.7
 
 
   # The following adds the Cupertino Icons font to your application.

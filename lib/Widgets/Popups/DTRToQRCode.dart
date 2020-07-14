@@ -12,7 +12,7 @@ class DTRToQRCode extends StatelessWidget {
       allowFontScaling: true, // Optional
     );
     return ContainerResponsive(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .80,
       width: MediaQuery.of(context).size.width,
       widthResponsive: true,
       heightResponsive: true,

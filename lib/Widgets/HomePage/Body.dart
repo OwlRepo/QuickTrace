@@ -30,7 +30,6 @@ class Body extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
         ),
         clipBehavior: Clip.antiAlias,
-        color: Colors.red,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,

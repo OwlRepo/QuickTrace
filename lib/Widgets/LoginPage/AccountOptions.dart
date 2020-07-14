@@ -24,6 +24,8 @@ class AccountOptions extends StatelessWidget {
             flex: 5,
             child: RaisedButtonResponsive(
               elevation: 0.0,
+              focusElevation: 0.0,
+              highlightElevation: 0.0,
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
               hoverColor: Colors.transparent,
@@ -44,12 +46,14 @@ class AccountOptions extends StatelessWidget {
             flex: 5,
             child: RaisedButtonResponsive(
               elevation: 0.0,
-              onPressed: () {},
+              focusElevation: 0.0,
+              highlightElevation: 0.0,
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
               hoverColor: Colors.transparent,
               color: Colors.transparent,
               highlightColor: Colors.transparent,
+              onPressed: () {},
               child: GestureDetector(
                 onTap: () => Navigator.push(
                   context,

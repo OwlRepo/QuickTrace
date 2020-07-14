@@ -17,8 +17,8 @@ class Body extends StatelessWidget {
       padding: EdgeInsetsResponsive.only(
         left: 30.0,
         right: 30.0,
-        top: 250.0,
-        bottom: 200.0,
+        top: 150.0,
+        bottom: 300.0,
       ),
       child: Form(
         child: Column(
@@ -144,6 +144,9 @@ class Body extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                         content: CreateNewAccountQRCode(),
                       ),
                     );

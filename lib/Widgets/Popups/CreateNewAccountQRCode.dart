@@ -12,7 +12,7 @@ class CreateNewAccountQRCode extends StatelessWidget {
       allowFontScaling: true, // Optional
     );
     return ContainerResponsive(
-      height: MediaQuery.of(context).size.height,
+      height: MediaQuery.of(context).size.height * .80,
       width: MediaQuery.of(context).size.width,
       widthResponsive: true,
       heightResponsive: true,
@@ -24,7 +24,11 @@ class CreateNewAccountQRCode extends StatelessWidget {
           Positioned(
             top: 5.0,
             child: Padding(
-              padding: EdgeInsetsResponsive.all(50.0),
+              padding: EdgeInsetsResponsive.only(
+                top: 50.0,
+                left: 50.0,
+                right: 50.0,
+              ),
               child: PrettyQr(
                 roundEdges: true,
                 typeNumber: 2,
@@ -38,7 +42,7 @@ class CreateNewAccountQRCode extends StatelessWidget {
             top: -80.0,
             child: ContainerResponsive(
               child: TextResponsive(
-                'Take a screenshot of this QRCode and get it scanned\nby the gateway device.',
+                'To activate your account, go to the nearest gateway\ndevice and use it to activate your account.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
