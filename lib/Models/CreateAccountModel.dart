@@ -4,9 +4,9 @@ class CreateAccountModel {
   String fullname, address, contactNo, password;
 
   CreateAccountModel({
-    @required this.fullname,
-    @required this.address,
-    @required this.contactNo,
+    this.fullname,
+    this.address,
+    this.contactNo,
     @required this.password,
   });
 }

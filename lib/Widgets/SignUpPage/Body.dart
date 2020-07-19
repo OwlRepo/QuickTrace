@@ -20,13 +20,13 @@ class Body extends StatelessWidget {
     final passwordValidator = MultiValidator([
       RequiredValidator(errorText: 'Password is required'),
       MinLengthValidator(8,
-          errorText: 'Password must be at least 8 digits long'),
+          errorText: 'Password must be at least 8 characters long'),
       PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-          errorText: 'passwords must have at least one special character')
+          errorText: 'Passwords must have at least one special character')
     ]);
 
     final createAccountProvider = Provider.of<CreateAccountProvider>(context);
-    String fullname, address, contactNo, initialPassword, finalPassword;
+    String fullname, address, contactNo, finalPassword;
 
     return ContainerResponsive(
       heightResponsive: true,
@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
       padding: EdgeInsetsResponsive.only(
         left: 30.0,
         right: 30.0,
-        top: 150.0,
+        top: 100.0,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -125,13 +125,18 @@ class Body extends StatelessWidget {
                                 ),
                               ),
                               TextFormField(
-                                onSaved: (newValue) => createAccountProvider
-                                    .newAccountInfo[0].password = newValue,
+                                onSaved: (newValue) =>
+                                    createAccountProvider.newAccountInfo = [
+                                  CreateAccountModel(password: newValue)
+                                ],
+                                onChanged: (value) =>
+                                    createAccountProvider.newAccountInfo = [
+                                  CreateAccountModel(password: value)
+                                ],
                                 onFieldSubmitted: (value) =>
-                                    createAccountProvider
-                                        .newAccountInfo[0].password = value,
-                                onChanged: (value) => createAccountProvider
-                                    .newAccountInfo[0].password = value,
+                                    createAccountProvider.newAccountInfo = [
+                                  CreateAccountModel(password: value)
+                                ],
                                 obscureText: true,
                                 validator: passwordValidator,
                                 decoration: InputDecoration(
@@ -145,9 +150,6 @@ class Body extends StatelessWidget {
                               TextFormField(
                                 obscureText: true,
                                 onSaved: (newValue) => finalPassword = newValue,
-                                onFieldSubmitted: (value) =>
-                                    finalPassword = value,
-                                onChanged: (value) => finalPassword = value,
                                 validator: (value) => value.isEmpty
                                     ? null
                                     : MatchValidator(
@@ -212,14 +214,6 @@ class Body extends StatelessWidget {
                         content: CreateNewAccountQRCode(),
                       ),
                     );
-                  } else {
-                    createAccountProvider.newAccountInfo = [
-                      CreateAccountModel(
-                          fullname: fullname,
-                          address: address,
-                          contactNo: contactNo,
-                          password: finalPassword),
-                    ];
                   }
                 },
                 child: Text(
