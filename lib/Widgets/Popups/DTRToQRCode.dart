@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:quicktrace/Providers/TimeRecordProvider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
+import 'package:provider/provider.dart';
 
 class DTRToQRCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final dateTimeProvider = Provider.of<TimeRecordProvider>(context);
     ResponsiveWidgets.init(
       context,
       height: 1920, // Optional
@@ -16,6 +19,9 @@ class DTRToQRCode extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       widthResponsive: true,
       heightResponsive: true,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
       child: Stack(
         overflow: Overflow.visible,
         alignment: Alignment.center,
@@ -27,10 +33,13 @@ class DTRToQRCode extends StatelessWidget {
               padding: EdgeInsetsResponsive.all(50.0),
               child: PrettyQr(
                 roundEdges: true,
-                typeNumber: 2,
+                typeNumber: 10,
                 size: 200.0,
                 elementColor: Color.fromRGBO(64, 64, 64, 1),
-                data: 'Try',
+                data: '\"Fullname\": \"Romeo D. Angeles Jr\",\n' +
+                    '\"ContactNo.\": \"+639179742494\",\n' +
+                    '\"Time\":\"${dateTimeProvider.dateTimeInfo[0].time}\",\n' +
+                    '\"Date\":\"${dateTimeProvider.dateTimeInfo[0].date}\"',
               ),
             ),
           ),
@@ -41,7 +50,7 @@ class DTRToQRCode extends StatelessWidget {
                 'Let the gateway device scan this QRCode first\nbefore you proceed.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromRGBO(64, 64, 64, 1),
                   fontSize: 35.0,
                   fontFamily: 'SanFranciscoBold',
                 ),

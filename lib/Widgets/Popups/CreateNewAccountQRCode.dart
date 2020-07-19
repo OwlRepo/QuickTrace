@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
+import 'package:quicktrace/Providers/CreateAccountProvider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
+import 'package:provider/provider.dart';
 
 class CreateNewAccountQRCode extends StatelessWidget {
   @override
@@ -11,6 +13,7 @@ class CreateNewAccountQRCode extends StatelessWidget {
       width: 1080, // Optional
       allowFontScaling: true, // Optional
     );
+    final createAccountProvider = Provider.of<CreateAccountProvider>(context);
     return ContainerResponsive(
       height: MediaQuery.of(context).size.height * .80,
       width: MediaQuery.of(context).size.width,
@@ -23,19 +26,15 @@ class CreateNewAccountQRCode extends StatelessWidget {
         children: [
           Positioned(
             top: 5.0,
-            child: Padding(
-              padding: EdgeInsetsResponsive.only(
-                top: 50.0,
-                left: 50.0,
-                right: 50.0,
-              ),
-              child: PrettyQr(
-                roundEdges: true,
-                typeNumber: 2,
-                size: 200.0,
-                elementColor: Color.fromRGBO(64, 64, 64, 1),
-                data: 'Try',
-              ),
+            child: PrettyQr(
+              roundEdges: true,
+              typeNumber: 10,
+              size: 200.0,
+              elementColor: Color.fromRGBO(64, 64, 64, 1),
+              data: '\"Fullname\":\"${createAccountProvider.newAccountInfo[0].fullname}\",\n' +
+                  '\"Address\":\"${createAccountProvider.newAccountInfo[0].address}\",\n' +
+                  '\"ContactNo\":\"${createAccountProvider.newAccountInfo[0].contactNo}\",\n' +
+                  '\"Password\":\"${createAccountProvider.newAccountInfo[0].password}\",\n',
             ),
           ),
           Positioned(
@@ -45,7 +44,7 @@ class CreateNewAccountQRCode extends StatelessWidget {
                 'To activate your account, go to the nearest gateway\ndevice and use it to activate your account.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Color.fromRGBO(64, 64, 64, 1),
                   fontSize: 35.0,
                   fontFamily: 'SanFranciscoBold',
                 ),

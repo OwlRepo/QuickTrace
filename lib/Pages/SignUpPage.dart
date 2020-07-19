@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:quicktrace/Widgets/SignUpPage/Body.dart';
 import 'package:quicktrace/Widgets/SignUpPage/Headers.dart';
@@ -13,8 +14,8 @@ class SignUpPage extends StatelessWidget {
       allowFontScaling: true, // Optional
     );
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: ContainerResponsive(
             heightResponsive: true,
             widthResponsive: true,

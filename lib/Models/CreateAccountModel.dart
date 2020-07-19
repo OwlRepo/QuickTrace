@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 class CreateAccountModel {
-  final String fullname, addresss, contactNo, password;
+  String fullname, address, contactNo, password;
 
   CreateAccountModel({
     @required this.fullname,
-    @required this.addresss,
+    @required this.address,
     @required this.contactNo,
     @required this.password,
   });

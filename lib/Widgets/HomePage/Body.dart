@@ -200,7 +200,10 @@ class Body extends StatelessWidget {
                     showDialog(
                       context: context,
                       barrierDismissible: true,
+                      barrierColor: Colors.white,
                       builder: (context) => AlertDialog(
+                        elevation: 0.0,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),

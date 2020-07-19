@@ -9,8 +9,23 @@ class SplashScreen extends StatelessWidget {
       Duration(seconds: 3),
       () {
         Navigator.of(context).pop();
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ),
+        );
+      },
+    );
+
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        Navigator.of(context).pop();
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => LoginPage(),
+          ),
+        );
       },
     );
 
