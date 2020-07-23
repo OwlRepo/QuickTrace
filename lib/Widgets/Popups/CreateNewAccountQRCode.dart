@@ -31,10 +31,10 @@ class CreateNewAccountQRCode extends StatelessWidget {
               typeNumber: 10,
               size: 200.0,
               elementColor: Color.fromRGBO(64, 64, 64, 1),
-              data: '\"Fullname\":\"${createAccountProvider.newAccountInfo[0].fullname}\",\n' +
+              data: '{\"Fullname\":\"${createAccountProvider.newAccountInfo[0].fullname}\",\n' +
                   '\"Address\":\"${createAccountProvider.newAccountInfo[0].address}\",\n' +
                   '\"ContactNo\":\"${createAccountProvider.newAccountInfo[0].contactNo}\",\n' +
-                  '\"Password\":\"${createAccountProvider.newAccountInfo[0].password}\",\n',
+                  '\"Password\":\"${createAccountProvider.newAccountInfo[0].password}\"}',
             ),
           ),
           Positioned(

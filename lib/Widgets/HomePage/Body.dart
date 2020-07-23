@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quicktrace/Models/TimeAndDateModel.dart';
+import 'package:quicktrace/Providers/DTRProvider.dart';
 import 'package:quicktrace/Providers/TimeRecordProvider.dart';
 import 'package:quicktrace/Widgets/Popups/DTRToQRCode.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
@@ -12,7 +13,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dateTimeProvider = Provider.of<TimeRecordProvider>(context);
-
+    final dtrController = Provider.of<DTRProvider>(context);
     Timer.periodic(Duration(seconds: 1), (timer) {
       List<TimeAndDateModel> setTimeAndDateInfo = [
         TimeAndDateModel(
@@ -210,9 +211,12 @@ class Body extends StatelessWidget {
                         content: DTRToQRCode(),
                       ),
                     );
+                    dtrController.dtrController == 0
+                        ? dtrController.dtrController += 1
+                        : dtrController.dtrController -= 1;
                   },
                   child: Text(
-                    'TIME IN',
+                    dtrController.dtrController == 0 ? 'TIME IN' : 'TIME OUT',
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: 'SanFranciscoBold',

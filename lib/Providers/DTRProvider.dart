@@ -3,6 +3,15 @@ import 'package:quicktrace/Models/DTRModel.dart';
 import 'package:quicktrace/Providers/TimeRecordProvider.dart';
 
 class DTRProvider with ChangeNotifier {
+  int _dtrController = 1;
+
+  int get dtrController => _dtrController;
+
+  set dtrController(int value) {
+    _dtrController = value;
+    notifyListeners();
+  }
+
   TimeRecordProvider timeAndDateProvider;
   List<DTRModel> dtrInformations = [
     DTRModel(

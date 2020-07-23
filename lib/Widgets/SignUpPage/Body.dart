@@ -157,8 +157,7 @@ class Body extends StatelessWidget {
                                                 'Password does not match')
                                         .validateMatch(
                                             value,
-                                            createAccountProvider
-                                                .newAccountInfo[0].password),
+                                            createAccountProvider.newAccountInfo[0].password),
                                 decoration: InputDecoration(
                                   labelText: 'Re-type password',
                                   labelStyle: TextStyle(
